@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshyadeep || Password Generator</title>
+</head>
+<body>
+    <div class="container">
+
+        <h1>Password Generator</h1>
+
+        <div class="display-container">
+
+            <input readonly placeholder="Password" class="display"  data-passwordDisplay>    <!--Custom Attribute-->
+
+            <button data-copy>
+                <span data-copyMsg></span>
+                <img src="./assets/copy.svg" alt="copy" height="23" width="23" loading="lazy">
+
+            </button>
+
+        </div>
+
+
+            <div class="input-container">
+
+                    <!-- password length section  -->
+                <div class="length-container">
+                    <p>Password Length</p>
+                    <p data-lenghtNumber>0</p>
+                </div>
+
+                <!-- slider  -->
+                <input type="range" max="20" class="slider"  step="1" data-lenghtSlider>
+
+
+                <!-- checkbox -->
+                <div>
+                    <input type="checkbox" id="uppercase">
+                    <label for="uppercase">Included Uppercase Letters</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="lowercase">
+                    <label for="lowercase">Included LowerCase Letters</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="Numbers">
+                    <label for="Numbers">Included Numbers</label>2
+                </div>
+                <div>
+                    <input type="checkbox" id="symbols">
+                    <label for="symbols">Included Symbols</label>
+                </div>
+
+
+                <!-- Strength  -->
+                <div class="Strength-container">
+                    <p>Strength</p>
+                    <div data-indicator></div>
+                </div>
+
+                <!-- generate password button  -->
+                <button class="generateButton">Generate Password</button>
+
+            </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
