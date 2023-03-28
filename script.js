@@ -54,3 +54,66 @@ function generateSymbol(){
     return symbols.charAt(random);
 
 }
+
+function calcStrength(){
+    let hasUpper = false;
+    let hasLower = false;
+    let hasNum = false;
+    let hasSym = false;
+    if(uppercaseCheck.checked) hasUpper = true;
+    if(lowercaseCheck.checked) hasLower = true;
+    if(numbersCheck.checked) hasNum = true;
+    if(symbolsCheck.checked) hasSym = true;
+
+    if(hasUpper && hasLower && (hasNum || hasSym) && passwordLength >=8){
+        setIndicator("#0f0");
+    }
+    else if(
+        (hasLower || hasUpper) &&
+        (hasNum || hasSym) &&
+        passwordLength >=6
+    ){
+        setIndicator("#ff0");
+    }
+    else{
+        setIndicator("#f00");
+    }
+}
+
+async function copyContent(){
+
+    try{
+        await navigator.clipboard.writeText(passwordDisplay.value);
+        copyMsg.innerText = "Copied";
+
+    }
+    catch(e){
+        copyMsg.innerText = "Failed";
+    }
+    //To make copy wala span visible
+    copyMsg.classList.add("active");
+
+    setTimeout(()=>{
+        copyMsg.classList.remove("active");
+    },2000);
+
+
+}
+
+//Here slider and the value 
+inputSlider.addEventListener('input', (e) =>{
+    passwordLength = e.target.value;
+    handleSlider();
+})
+
+copyBtn.addEventListener('click', ()=>{
+    if(passwordDisplay.value){
+        copyContent();
+    }
+})
+
+generateBtn.addEventListener('click', ()=>{
+
+})
+
+//01:57:11
